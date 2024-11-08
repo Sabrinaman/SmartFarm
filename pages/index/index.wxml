@@ -1,0 +1,103 @@
+<!--index.wxml-->
+<navigation-bar title="我的农场" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+  <!-- 顶部地址栏 -->
+  <view class="address-bar">
+    <view class="location">
+      <image class="location-icon" src="/images/icons/location.png"/>
+      <text class="location-text">广东省广州市从化区</text>
+      <image class="arrow-icon" src="/images/icons/arrowRight.png"/>
+    </view>
+  </view>
+
+  <!-- 天气信息区域 -->
+  <view class="weather-section">
+    <view class="weather-main">
+      <view class="temp-box">
+        <text class="temperature">26°</text>
+        <text class="weather-desc">晴天</text>
+      </view>
+      <view class="weather-details">
+        <view class="weather-item">
+          <image class="weather-icon" src="/images/icons/humidity.png"/>
+          <text>湿度 75%</text>
+        </view>
+        <view class="weather-item">
+          <image class="weather-icon" src="/images/icons/wind.png"/>
+          <text>东南风 2级</text>
+        </view>
+        <view class="weather-item">
+          <image class="weather-icon" src="/images/icons/soil.png"/>
+          <text>土壤湿度 65%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 农场卡片区域 -->
+  <view class="farm-section">
+    <view class="section-header">
+      <text class="section-title">我的农场</text>
+      <text class="total-count">共{{claimedItems.length}}个作物</text>
+    </view>
+
+    <swiper class="card-swiper" 
+            previous-margin="50rpx"
+            next-margin="50rpx"
+            bindchange="onSwiperChange">
+      <!-- 已认领的农场项目 -->
+      <swiper-item wx:for="{{claimedItems}}" wx:key="id">
+        <view class="farm-card {{currentIndex === index ? 'active' : ''}}">
+          <view class="card-header">
+            <image class="crop-icon" src="{{item.icon}}"/>
+            <view class="crop-info">
+              <text class="crop-name">{{item.name}}</text>
+              <text class="crop-status {{item.statusClass}}">{{item.status}}</text>
+            </view>
+          </view>
+
+          <view class="growth-info">
+            <view class="progress-bar">
+              <view class="progress" style="width: {{item.growthProgress}}"></view>
+            </view>
+            <text class="growth-text">生长进度 {{item.growthProgress}}%</text>
+          </view>
+
+          <view class="info-grid">
+            <view class="info-item">
+              <text class="info-label">已生长</text>
+              <text class="info-value">{{item.daysGrown}}天</text>
+            </view>
+            <view class="info-item">
+              <text class="info-label">剩余天数</text>
+              <text class="info-value">{{item.daysRemaining}}天</text>
+            </view>
+            <view class="info-item">
+              <text class="info-label">预期产量</text>
+              <text class="info-value">{{item.expectedYield}}</text>
+            </view>
+            <view class="info-item">
+              <text class="info-label">当前状态</text>
+              <text class="info-value">{{item.currentPhase}}</text>
+            </view>
+          </view>
+
+          <view class="care-tips">
+            <image class="tips-icon" src="/images/icons/tips.png"/>
+            <text class="tips-text">{{item.careTips}}</text>
+          </view>
+        </view>
+      </swiper-item>
+
+      <!-- 添加新认领卡片 -->
+      <swiper-item>
+        <view class="farm-card add-card" bindtap="showClaimModal">
+          <view class="add-icon">+</view>
+          <text class="add-text">认领新物种</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+</scroll-view>

@@ -1,0 +1,27 @@
+<!-- 顶部导航栏 -->
+<view class="nav-bar">
+  <text class="title">智慧农场</text>
+</view>
+
+<!-- 认领区域 -->
+<view class="claim-area">
+  <text class="section-title">我的农场</text>
+  <scroll-view class="card-container" scroll-x="true">
+    <!-- 农作物卡片 -->
+    <view class="farm-card {{item.claimed ? 'claimed' : ''}}" wx:for="{{farmItems}}" wx:key="id">
+      <image class="item-icon" src="{{item.icon}}"></image>
+      <text class="item-name">{{item.name}}</text>
+      
+      <block wx:if="{{!item.claimed}}">
+        <button class="claim-btn" bindtap="claimItem" data-id="{{item.id}}">认领</button>
+      </block>
+      <block wx:else>
+        <view class="weather-info">
+          <text class="temperature">{{item.temperature}}°C</text>
+          <image class="weather-icon" src="{{item.weatherIcon}}"></image>
+        </view>
+        <button class="detail-btn" bindtap="showDetail" data-id="{{item.id}}">详情</button>
+      </block>
+    </view>
+  </scroll-view>
+</view>

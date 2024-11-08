@@ -1,0 +1,87 @@
+/* 顶部导航栏样式 */
+.nav-bar {
+  background-color: #8B4513;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+/* 认领区域样式 */
+.claim-area {
+  padding: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.card-container {
+  white-space: nowrap;
+  padding: 10rpx 0;
+}
+
+.farm-card {
+  display: inline-block;
+  width: 300rpx;
+  height: 400rpx;
+  margin-right: 20rpx;
+  background-color: #E8F5E9;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: relative;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.claimed {
+  background-color: #4CAF50;
+}
+
+.item-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 20rpx auto;
+  display: block;
+}
+
+.item-name {
+  text-align: center;
+  display: block;
+  color: #333;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.claim-btn, .detail-btn {
+  background-color: #FFD54F;
+  color: white;
+  border: none;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.weather-info {
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.temperature {
+  font-size: 40rpx;
+  color: #333;
+  margin-right: 10rpx;
+}
+
+.weather-icon {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
