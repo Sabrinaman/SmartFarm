@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/shopping/shopping",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/addSpecies/addSpecies"
   ],
   "window": {
     "navigationBarTextStyle": "black",

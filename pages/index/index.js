@@ -11,13 +11,17 @@ Page({
         temperature: 25,
         temperatureClass: 'warm',
         weatherIcon: '/images/weather/sunny.png',
+        growthProgress:'100',
         weatherDesc: '晴，微风',
         showDetail: false,
         growthCycle: 180,
         difficulty: '中等',
         expectedYield: '15-20kg',
         soilType: '砂质土壤',
-        climate: '温度20-30℃，湿度60-80%'
+        climate: '温度20-30℃，湿度60-80%',
+        currentPhase: '生长良好',
+        daysGrown: '30',
+        daysRemaining: '243'
       }
       // 其他已认领项目...
     ],
@@ -55,8 +59,10 @@ Page({
     this.setData({ claimedItems });
   },
 
-  showClaimModal() {
-    this.setData({ showClaimModal: true });
+  addNewSpecies() {
+    wx.navigateTo({
+      url: '/pages/addSpecies/addSpecies',
+    })
   },
 
   hideClaimModal() {

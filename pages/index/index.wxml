@@ -92,7 +92,7 @@
 
       <!-- 添加新认领卡片 -->
       <swiper-item>
-        <view class="farm-card add-card" bindtap="showClaimModal">
+        <view class="farm-card add-card" bindtap="addNewSpecies">
           <view class="add-icon">+</view>
           <text class="add-text">认领新物种</text>
         </view>

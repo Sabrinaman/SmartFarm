@@ -5,5 +5,18 @@
     "compileHotReLoad": true,
     "skylineRenderEnable": true
   },
-  "libVersion": "development"
+  "libVersion": "development",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/addSpecies/addSpecies",
+          "pathName": "pages/addSpecies/addSpecies",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

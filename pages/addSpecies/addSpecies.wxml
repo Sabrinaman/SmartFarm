@@ -1,0 +1,124 @@
+<!--pages/addSpecies/addSpecies.wxml-->
+<view class="container">
+  <!-- 返回按钮 -->
+  <view class="back-btn" bindtap="goBack">
+    <image class="back-icon" src="/images/addSpeciesIcon/back.png"/>
+  </view>
+
+  <!-- 轮播图展示 -->
+  <swiper class="species-swiper" 
+          bindchange="onSwiperChange" 
+          current="{{currentIndex}}"
+          circular="true">
+    <swiper-item wx:for="{{speciesList}}" wx:key="id">
+      <view class="species-card {{item.colorClass}}">
+       <image class="species-image" src="{{item.image}}" mode="aspectFit"/>
+        <view class="species-content">
+          <text class="species-name">{{item.name}}</text>
+          
+          <!-- 农作物信息 -->
+          <block wx:if="{{item.type === 'crop'}}">
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/time.png"/>
+              <text class="info-label">生长周期：</text>
+              <text class="info-value brown">{{item.growthCycle}}天</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/nandu.png"/>
+              <text class="info-label">种植难度：</text>
+              <text class="info-value {{item.difficultyClass}}">{{item.difficulty}}</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/energy.png"/>
+              <text class="info-label">预计产量：</text>
+              <text class="info-value">{{item.expectedYield}}</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/turang.png"/>
+              <text class="info-label">适合土壤：</text>
+              <text class="info-value">{{item.soilType}}</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/huanjing.png"/>
+              <text class="info-label">气候条件：</text>
+              <text class="info-value">{{item.climate}}</text>
+            </view>
+          </block>
+
+          <!-- 动物信息 -->
+          <block wx:else>
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/time01.png"/>
+              <text class="info-label">养殖周期：</text>
+              <text class="info-value brown">{{item.breedingCycle}}天</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/siliao.png"/>
+              <text class="info-label">饲料需求：</text>
+              <text class="info-value">{{item.feedRequirement}}</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/fanzhi.png"/>
+              <text class="info-label">繁殖特点：</text>
+              <text class="info-value">{{item.breedingFeatures}}</text>
+            </view>
+
+            <view class="info-item">
+              <image class="info-icon" src="/images/addSpeciesIcon/huanjing01.png"/>
+              <text class="info-label">适宜环境：</text>
+              <text class="info-value">{{item.environment}}</text>
+            </view>
+            
+          </block>
+        </view>
+
+        <button class="claim-btn" bindtap="claimSpecies" data-id="{{item.id}}">认领</button>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 指示点 -->
+  <view class="dots">
+    <view class="dot {{currentIndex === index ? 'active' : ''}}" 
+          wx:for="{{speciesList}}" 
+          wx:key="id">
+    </view>
+  </view>
+</view>
+
+<!-- 在原有代码最后添加弹窗组件 -->
+<view class="modal" wx:if="{{showClaimModal}}">
+  <view class="modal-content">
+    <view class="modal-title">认领 {{selectedSpecies.name}}</view>
+    
+    <view class="input-group">
+      <text class="input-label">名称</text>
+      <input class="input" 
+             placeholder="给它起个名字吧" 
+             value="{{claimForm.name}}"
+             bindinput="onNameInput"/>
+    </view>
+
+<!-- 弹窗 -->
+    <view class="input-group">
+      <text class="input-label">{{selectedSpecies.type === 'animal' ? '数量' : '种子重量'}}</text>
+      <input class="input" 
+             type="number"
+             placeholder="{{selectedSpecies.type === 'animal' ? '请输入数量' : '请输入重量(斤)'}}"
+             value="{{claimForm.quantity}}"
+             bindinput="onQuantityInput"/>
+      <text class="unit">{{selectedSpecies.type === 'animal' ? '只' : '斤'}}</text>
+    </view>
+
+    <view class="modal-buttons">
+      <button class="cancel-btn" bindtap="cancelClaim">取消</button>
+      <button class="confirm-btn" bindtap="confirmClaim">确定</button>
+    </view>
+  </view>
+</view>

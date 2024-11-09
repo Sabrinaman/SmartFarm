@@ -1,6 +1,6 @@
 /**index.wxss**/
 page {
-  height: 100vh;
+  height: 120vh;
   display: flex;
   justify-content: flex;
   flex-direction: column;
@@ -10,8 +10,12 @@ page {
   overflow-y: hidden;
 }
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
   padding: 0rpx;
-  min-height: 80vh;
+  min-height: 100vh;
   background-color: #f5f5f5;
 }
 
@@ -49,9 +53,10 @@ page {
 
 /* 天气信息区域样式 */
 .weather-section {
-  background-color: rgb(95, 95, 95);
+  background-color: rgb(230, 230, 230);
   padding: 30rpx;
-  margin-bottom: 20rpx;
+  margin:50rpx 10rpx;
+  border-radius: 10rpx;
 }
 
 .weather-main {
@@ -119,7 +124,8 @@ page {
 }
 
 .card-swiper {
-  height: 600rpx;
+  width: 650rpx;
+  height: 900rpx;
 }
 
 .farm-card {
