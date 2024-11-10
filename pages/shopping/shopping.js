@@ -3,9 +3,9 @@ Page({
     searchKey: '',
     currentCategory: 'fruits',
     banners: [
-      { id: 1 },
-      { id: 2 },
-      { id: 3 }
+      { id: 1 ,image: '/images/pic/chengzi1.png'},
+      { id: 2 ,image: '/images/pic/boluo1.png'},
+      { id: 3 ,image: '/images/pic/pingguo1.png'}
     ],
     products: {
       fruits: [

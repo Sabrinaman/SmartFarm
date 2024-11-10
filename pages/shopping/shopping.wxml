@@ -1,4 +1,4 @@
-<navigation-bar title="购物商城" color= "black" background="#FFF"></navigation-bar>
+<navigation-bar title="购物商城"  color= "black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   
 
@@ -9,7 +9,7 @@
   <view class="search-bar">
     <image class="search-icon" src="/images/pic/webp1.jpg"/>
     <input class="search-input" 
-           placeholder="搜索商品" 
+           placeholder="菠萝" 
            bindinput="onSearchInput"
            value="{{searchKey}}"/>
   </view>
@@ -21,7 +21,7 @@
           interval="3000"
           circular="true">
     <swiper-item wx:for="{{banners}}" wx:key="id">
-      <image src="/images/pic/webp1.jpg" mode="aspectFill" class="banner-image"/>
+      <image src="{{item.image}}" mode="aspectFill" class="banner-image"/>
     </swiper-item>
   </swiper>
 

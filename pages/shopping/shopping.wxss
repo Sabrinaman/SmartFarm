@@ -1,6 +1,6 @@
 page {
-  height: 100%;
-  /* display: flex; */
+  display: flex;
+  background-color: rgb(245, 245, 245);
 }
 
 /* 顶部导航栏样式 */
@@ -12,24 +12,26 @@ page {
 }
 
 .container {
+  margin-top: 100rpx;
   display: flex;
   width: 100%;
-  min-height: 100%;
+  min-height: 120vh;
   padding: 20rpx;
-  background-color: #d4bf7b;
+  /* background-color: #d4bf7b; */
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 /* 搜索栏样式 */
 .search-bar {
-  width: 80%;
-  height: 50rpx;
+  width: 600rpx;
+  height: 80rpx;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: rgb(231, 231, 231);
   padding: 20rpx;
-  border-radius: 30rpx;
-  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  margin: 20rpx 0;
 }
 
 .search-icon {
@@ -46,8 +48,9 @@ page {
 /* 轮播图样式 */
 .banner-swiper {
   height: 300rpx;
-  width: 500rpx;
-  margin-bottom: 20rpx;
+  width: 600rpx;
+  align-items: center;
+  margin: 30rpx 0;
 }
 
 .banner-image {
@@ -58,11 +61,11 @@ page {
 
 /* 分类导航栏样式 */
 .category-nav {
-  width: 80%;
+  width: 600rpx;
   display: flex;
   background-color: #fff;
   padding: 20rpx 0;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
   border-radius: 20rpx;
 }
 
@@ -96,14 +99,15 @@ page {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #d4bf7b;
+  /* background-color: #d4bf7b; */
 }
 
 /* 商品列表样式 */
 .products-container {
   flex: 1;
-  width: 80%;
+  width: 600rpx;
   display: flex;
+  min-height: 50vh;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 20rpx;
