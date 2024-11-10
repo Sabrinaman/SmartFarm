@@ -1,27 +1,62 @@
-<!-- 顶部导航栏 -->
-<view class="nav-bar">
-  <text class="title">智慧农场</text>
-</view>
+<navigation-bar title="购物商城" color= "black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  
 
-<!-- 认领区域 -->
-<view class="claim-area">
-  <text class="section-title">我的农场</text>
-  <scroll-view class="card-container" scroll-x="true">
-    <!-- 农作物卡片 -->
-    <view class="farm-card {{item.claimed ? 'claimed' : ''}}" wx:for="{{farmItems}}" wx:key="id">
-      <image class="item-icon" src="{{item.icon}}"></image>
-      <text class="item-name">{{item.name}}</text>
-      
-      <block wx:if="{{!item.claimed}}">
-        <button class="claim-btn" bindtap="claimItem" data-id="{{item.id}}">认领</button>
-      </block>
-      <block wx:else>
-        <view class="weather-info">
-          <text class="temperature">{{item.temperature}}°C</text>
-          <image class="weather-icon" src="{{item.weatherIcon}}"></image>
-        </view>
-        <button class="detail-btn" bindtap="showDetail" data-id="{{item.id}}">详情</button>
-      </block>
+  <view class="container">
+  
+<view class="fixed_section">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <image class="search-icon" src="/images/pic/webp1.jpg"/>
+    <input class="search-input" 
+           placeholder="搜索商品" 
+           bindinput="onSearchInput"
+           value="{{searchKey}}"/>
+  </view>
+
+  <!-- 热销商品轮播图 -->
+  <swiper class="banner-swiper" 
+          indicator-dots="true"
+          autoplay="true"
+          interval="3000"
+          circular="true">
+    <swiper-item wx:for="{{banners}}" wx:key="id">
+      <image src="/images/pic/webp1.jpg" mode="aspectFill" class="banner-image"/>
+    </swiper-item>
+  </swiper>
+
+  <!-- 分类导航栏 -->
+  <view class="category-nav">
+    <view class="nav-item {{currentCategory === 'fruits' ? 'active' : ''}}" 
+          bindtap="switchCategory" 
+          data-category="fruits">
+      新鲜果蔬
     </view>
-  </scroll-view>
+    <view class="nav-item {{currentCategory === 'meat' ? 'active' : ''}}" 
+          bindtap="switchCategory" 
+          data-category="meat">
+      家禽肉类
+    </view>
+    <view class="nav-item {{currentCategory === 'seafood' ? 'active' : ''}}" 
+          bindtap="switchCategory" 
+          data-category="seafood">
+      海鲜产品
+    </view>
+  </view></view>
+
+  <!-- 商品列表 -->
+  <view class="products-container">
+    <view class="product-item" 
+          wx:for="{{currentProducts}}" 
+          wx:key="id"
+          bindtap="goToDetail"
+          data-id="{{item.id}}">
+      <image class="product-image" src="../../images/pic/webp1.jpg" mode="aspectFill"/>
+      <view class="product-info">
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-price">¥{{item.price}}/{{item.unit}}</text>
+      </view>
+    </view>
+  </view>
 </view>
+</scroll-view>
